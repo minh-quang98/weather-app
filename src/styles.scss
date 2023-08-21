@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "../node_modules/primeflex/primeflex.css";
+
+body {
+  background-image: url(./assets/cloud.png);
+}
+
+.temp-color {
+  color: rgb(74, 111, 161)
+}
+
+.temp-sub-text {
+  color: rgb(123, 152, 178);
+}
+
+.temp-percent {
+  color: rgb(48, 128, 200);
+}
