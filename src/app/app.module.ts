@@ -7,6 +7,9 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule }    from '@angular/forms';
 import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { PasswordModule } from 'primeng/password';
+import { InputTextModule } from 'primeng/inputtext';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +22,9 @@ import { StorageService } from './services/storage.service';
 import { CurrentWeatherComponent } from './user-page/current-weather/current-weather.component';
 import { ExtendedForecastComponent } from './user-page/extended-forecast/extended-forecast.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { AdminHeaderComponent } from './admin-page/admin-header/admin-header.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +34,8 @@ import { ExtendedForecastComponent } from './user-page/extended-forecast/extende
     HeaderComponent,
     SearchBarComponent,
     CurrentWeatherComponent,
-    ExtendedForecastComponent
+    ExtendedForecastComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,11 @@ import { ExtendedForecastComponent } from './user-page/extended-forecast/extende
     DropdownModule,
     FormsModule,
     CardModule,
-    AppRoutingModule
+    ButtonModule,
+    PasswordModule,
+    InputTextModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [StorageService],
   bootstrap: [AppComponent]

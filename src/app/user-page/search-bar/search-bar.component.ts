@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -6,22 +6,21 @@ import { Component, OnInit  } from '@angular/core';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
+  @Output() search: EventEmitter<any> = new EventEmitter();
   countries: any[] | undefined;
 
   selectedCountry: any | undefined;
 
   ngOnInit() {
     this.countries = [
-        { name: 'Australia', code: 'AU' },
-        { name: 'Brazil', code: 'BR' },
-        { name: 'China', code: 'CN' },
-        { name: 'Egypt', code: 'EG' },
-        { name: 'France', code: 'FR' },
-        { name: 'Germany', code: 'DE' },
-        { name: 'India', code: 'IN' },
-        { name: 'Japan', code: 'JP' },
-        { name: 'Spain', code: 'ES' },
-        { name: 'United States', code: 'US' }
+      { name: 'Hà Nội', city: "HaNoi", country: "VietNam" },
+      { name: 'Huế', city: "Hue", country: "VietNam" },
+      { name: 'Hồ Chí Minh', city: "HoChiMinh", country: "VietNam" },
+      { name: 'Hải Phòng', city: "HaiPhong", country: "VietNam" },
     ];
-}
+  }
+
+  handleSelectCity(search: any): void {
+    this.search.emit(search)
+  }
 }
