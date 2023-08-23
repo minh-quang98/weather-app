@@ -17,4 +17,8 @@ export class AuthenService {
   getUser(): string {
     return this.storageService.getDataLocalStorage(userStorageKey)
   }
+
+  deleteUser(): void {
+    this.storageService.deleteData(userStorageKey)
+  }
 }

@@ -14,9 +14,6 @@ export class HeaderComponent {
 
   handleClick(): void {
     const user = this.authenService.getUser();
-
-    console.log('check>>>', user);
-
     if (user && user !== "") {
       this.router.navigate(['admin'])
     } else {

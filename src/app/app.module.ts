@@ -10,6 +10,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
+import { TableModule } from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { ExtendedForecastComponent } from './user-page/extended-forecast/extende
 
 import { HttpClientModule } from '@angular/common/http';
 import { AdminHeaderComponent } from './admin-page/admin-header/admin-header.component';
+import { AdminBodyComponent } from './admin-page/admin-body/admin-body.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AdminHeaderComponent } from './admin-page/admin-header/admin-header.com
     SearchBarComponent,
     CurrentWeatherComponent,
     ExtendedForecastComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    AdminBodyComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { AdminHeaderComponent } from './admin-page/admin-header/admin-header.com
     ButtonModule,
     PasswordModule,
     InputTextModule,
+    TableModule,
     AppRoutingModule,
     HttpClientModule
   ],
