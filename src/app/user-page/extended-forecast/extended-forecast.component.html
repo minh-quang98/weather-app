@@ -4,52 +4,11 @@
       <h2>Extended Forecast</h2>
     </div>
     <div class="w-full flex justify-content-around">
-      <div>
-        <div>Thu</div>
-        <div>Rain</div>
-        <div>35°</div>
-      </div>
-
-      <div>
-        <div>Thu</div>
-        <div>Rain</div>
-        <div>35°</div>
-      </div>
-
-      <div>
-        <div>Thu</div>
-        <div>Rain</div>
-        <div>35°</div>
-      </div>
-
-      <div>
-        <div>Thu</div>
-        <div>Rain</div>
-        <div>35°</div>
-      </div>
-
-      <div>
-        <div>Thu</div>
-        <div>Rain</div>
-        <div>35°</div>
-      </div>
-
-      <div>
-        <div>Thu</div>
-        <div>Rain</div>
-        <div>35°</div>
-      </div>
-
-      <div>
-        <div>Thu</div>
-        <div>Rain</div>
-        <div>35°</div>
-      </div>
-
-      <div>
-        <div>Thu</div>
-        <div>Rain</div>
-        <div>35°</div>
+      <div *ngFor="let weather of listWeather">
+        <h2 class="temp-color text-center">{{ weather.date | date:'EEEEEE'}}</h2>
+        <div class="flex justify-content-center"><img class="icon-weather" src="https://cdn.weatherbit.io/static/img/icons/{{weather.icon}}.png" /></div>
+        <h4 class="temp-sub-text text-center">{{weather.descrition}}</h4>
+        <h3 class="temp-sub-text text-center">{{weather.temp}}</h3>
       </div>
     </div>
   </p-card>

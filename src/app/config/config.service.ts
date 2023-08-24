@@ -30,10 +30,7 @@ export class ConfigService {
   }
 
     getData(url: string): Observable<any> {
-    return this.http.get<any>(url, httpOptions).pipe(
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this.http.get<any>(url, httpOptions)
   }
 
   postData(url: string, body: any): Observable<any> {
