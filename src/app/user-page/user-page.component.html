@@ -2,7 +2,7 @@
   <div class="weather-container">
     <app-header></app-header>
     <app-search-bar (search)="handleSearch($event)"></app-search-bar>
-    <app-current-weather class="block mt-5"></app-current-weather>
-    <app-extended-forecast class="block mt-5"></app-extended-forecast>
+    <app-current-weather [dataSearch]="searchData" *ngIf="showData" class="block mt-5"></app-current-weather>
+    <app-extended-forecast [dataSearch]="searchData" *ngIf="showData" class="block mt-5"></app-extended-forecast>
   </div>
 </div>

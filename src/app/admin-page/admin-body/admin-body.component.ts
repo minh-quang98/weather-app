@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Admin } from 'src/app/interfaces/admin';
 import { AdminService } from 'src/app/services/admin/admin.service';
 
 interface Column {
@@ -13,14 +14,20 @@ interface Column {
 })
 export class AdminBodyComponent implements OnInit {
   cols!: Column[];
-  users!: any[];
+  users!: Admin[];
+  currentUser: any
+  visible: boolean = false;
+  userName!: string;
+  role!: number;
 
   constructor(private adminService: AdminService) { };
 
   ngOnInit(): void {
     this.adminService.getUsersData().then((data) => {
       this.users = data;
+      this.currentUser = this.users.find(user => user.name === this.adminService.getCurrentUser());
     })
+
     this.cols = [
       {
         field: 'id',
@@ -31,9 +38,28 @@ export class AdminBodyComponent implements OnInit {
         header: 'Name'
       },
       {
+        field: 'role',
+        header: 'Role'
+      },
+      {
         field: 'status',
         header: 'Status'
-      }
+      },
     ]
+  }
+
+  showDialog() {
+    this.visible = true;
+  }
+
+  addUser() {
+    const dataUser = {
+      id: this.users.length + 1,
+      name: this.userName,
+      role: this.role,
+      status: 'Active'
+    }
+    this.adminService.addUser(dataUser)
+    this.visible = false
   }
 }
