@@ -12,6 +12,7 @@ import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { ExtendedForecastComponent } from './user-page/extended-forecast/extende
 import { HttpClientModule } from '@angular/common/http';
 import { AdminHeaderComponent } from './admin-page/admin-header/admin-header.component';
 import { AdminBodyComponent } from './admin-page/admin-body/admin-body.component';
+import { CustomRolePipe } from 'src/share/custom-role-pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { AdminBodyComponent } from './admin-page/admin-body/admin-body.component
     CurrentWeatherComponent,
     ExtendedForecastComponent,
     AdminHeaderComponent,
-    AdminBodyComponent
+    AdminBodyComponent,
+    CustomRolePipe,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { AdminBodyComponent } from './admin-page/admin-body/admin-body.component
     InputTextModule,
     TableModule,
     DialogModule,
+    ToastModule,
     AppRoutingModule,
     HttpClientModule
   ],

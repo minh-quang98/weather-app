@@ -18,7 +18,7 @@ export class AdminBodyComponent implements OnInit {
   currentUser: any
   visible: boolean = false;
   userName!: string;
-  role!: number;
+  role!: string;
 
   constructor(private adminService: AdminService) { };
 
@@ -56,10 +56,18 @@ export class AdminBodyComponent implements OnInit {
     const dataUser = {
       id: this.users.length + 1,
       name: this.userName,
-      role: this.role,
+      role: parseInt(this.role),
       status: 'Active'
     }
     this.adminService.addUser(dataUser)
     this.visible = false
+  }
+
+  deleteUser(item: any) {
+    this.adminService.deleteUser(item)
+  }
+
+  onChangeStatus(item: any) {
+    this.adminService.updateUser(item, {status: item.status === 'Inactive' ? 'Active' : 'Inactive'})
   }
 }

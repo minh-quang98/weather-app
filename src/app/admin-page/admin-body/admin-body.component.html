@@ -1,27 +1,29 @@
 <div class="card">
   <p-table [columns]="cols" [value]="users" [tableStyle]="{ 'min-width': '50rem' }">
-    <ng-template pTemplate="caption">
+    <ng-template *ngIf="currentUser.role === 1" pTemplate="caption">
       <div class="flex align-items-center justify-content-between">
-        Add User
+        <h3>Add User</h3>
         <p-button (click)="showDialog()" icon="pi pi-plus"></p-button>
       </div>
     </ng-template>
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns">
+        <th class="text-center" *ngFor="let col of columns">
           {{ col.header }}
         </th>
-        <th>Actions</th>
+        <th class="text-center" *ngIf="currentUser.role === 1">Actions</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <ng-template pTemplate="body" let-rowData let-user>
       <tr>
-        <td *ngFor="let col of columns">
-          {{ rowData[col.field] }}
+        <td class="text-center">{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.role | customRole }}</td>
+        <td class="text-center">{{ user.status }}</td>
+        <td *ngIf="currentUser.role === 1" class="flex justify-content-center">
+          <button type="button" (click)="onChangeStatus(rowData)" class="mr-2" pButton pRipple>Action</button>
+          <p-button label="Delete" styleClass="p-button-danger" (onClick)="deleteUser(rowData)"></p-button>
         </td>
-        <td>
-          <button type="button" pButton pRipple>Action</button>
-      </td>
       </tr>
     </ng-template>
   </p-table>
