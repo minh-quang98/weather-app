@@ -6,7 +6,8 @@
 @import "../node_modules/primeflex/primeflex.css";
 
 body {
-  background-image: url(./assets/cloud.png);
+  background: url(./assets/cloud.png) no-repeat center center fixed;
+  background-size: cover;
 }
 
 .temp-color {

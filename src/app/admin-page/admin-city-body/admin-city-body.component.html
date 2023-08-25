@@ -1,0 +1,55 @@
+<div class="card">
+  <p-table [columns]="cols" [value]="citys" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template *ngIf="currentUser.role === 1" pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <h3>Add City</h3>
+        <p-button (click)="showDialog()" icon="pi pi-plus"></p-button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th class="text-center" *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+        <th class="text-center" *ngIf="currentUser.role === 1">Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-user>
+      <tr>
+        <td class="text-center">{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.city }}</td>
+        <td>{{ user.country }}</td>
+        <td *ngIf="currentUser.role === 1" class="flex justify-content-center">
+          <p-button label="Delete" styleClass="p-button-danger" (onClick)="deleteCity(rowData)"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-dialog header="Add User" [modal]="true" [draggable]="false" [resizable]="false" [(visible)]="visible"
+    [style]="{width: '50vw'}">
+    <div >
+      <div class="flex mb-3">
+        <div class="w-3 flex align-items-center">
+          <div><label htmlFor="city">City</label></div>
+        </div>
+        <div class="w-9">
+          <input class="w-full" id="city" type="text" pInputText [(ngModel)]="city"/>
+        </div>
+      </div>
+
+      <div class="flex mb-5">
+        <div class="w-3 flex align-items-center">
+          <div><label htmlFor="country">Country</label></div>
+        </div>
+        <div class="w-9">
+          <input class="w-full" id="country" type="text" pInputText pKeyFilter="int" [(ngModel)]="country"/>
+        </div>
+      </div>
+    </div>
+    <div class="card flex justify-content-center">
+      <p-button (click)="addCity()" label="Submit"></p-button>
+  </div>
+  </p-dialog>
+</div>

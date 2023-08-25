@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -11,13 +12,14 @@ export class SearchBarComponent implements OnInit {
 
   selectedCountry: any | undefined;
 
+  constructor(private userService: UserService) {
+
+  }
+
   ngOnInit() {
-    this.countries = [
-      { name: 'Hà Nội', city: "HaNoi", country: "VietNam" },
-      { name: 'Huế', city: "Hue", country: "VietNam" },
-      { name: 'Hồ Chí Minh', city: "HoChiMinh", country: "VietNam" },
-      { name: 'Hải Phòng', city: "HaiPhong", country: "VietNam" },
-    ];
+    this.userService.getCity().then((data: any) => {
+      this.countries = data;
+    })
   }
 
   handleSelectCity(search: any): void {

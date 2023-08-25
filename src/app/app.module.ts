@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminHeaderComponent } from './admin-page/admin-header/admin-header.component';
 import { AdminBodyComponent } from './admin-page/admin-body/admin-body.component';
 import { CustomRolePipe } from 'src/share/custom-role-pipe';
+import { AdminCityBodyComponent } from './admin-page/admin-city-body/admin-city-body.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CustomRolePipe } from 'src/share/custom-role-pipe';
     AdminHeaderComponent,
     AdminBodyComponent,
     CustomRolePipe,
+    AdminCityBodyComponent,
   ],
   imports: [
     BrowserModule,
